@@ -19,4 +19,12 @@ cargo build --target wasm32-unknown-emscripten
 
 ## Wasi target
 
+This is doable, [see this](https://github.com/rustwasm/team/issues/291#issuecomment-1158009977).
+
+```bash
+# dependency emscripten and clang...
+apt install llvm-dev libclang-dev clang
+rustup target add wasm32-wasi
+```
+
 TODO: Does not work yet!
