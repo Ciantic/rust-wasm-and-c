@@ -2,13 +2,27 @@
 
 ## Wasm-pack build with C code
 
+Most modern at the moment, generates usable JS and WASM file.
+
 ```bash
 apt install llvm-dev libclang-dev clang lld
 CC=/usr/bin/clang AR=/usr/bin/llvm-ar wasm-pack build --target web --out-dir=pkg
 ```
 
 
-## Emscripten target
+## Wasi target
+
+Generates only WASM File
+
+```bash
+# dependency emscripten and clang...
+apt install llvm-dev libclang-dev clang lld
+CC=/usr/bin/clang AR=/usr/bin/llvm-ar cargo build --target wasm32-wasi
+```
+
+## Emscripten target (old, avoid this)
+
+Generates WASM and JS file, but bit outdated (uses emscripten)
 
 ```bash
 # dependency emscripten and clang...
@@ -24,15 +38,3 @@ source ~/emsdk/emsdk_env.sh
 rustup target add wasm32-unknown-emscripten
 cargo build --target wasm32-unknown-emscripten
 ```
-
-## Wasi target
-
-This is doable, [see this](https://github.com/rustwasm/team/issues/291#issuecomment-1158009977).
-
-```bash
-# dependency emscripten and clang...
-apt install llvm-dev libclang-dev clang
-rustup target add wasm32-wasi
-```
-
-TODO: Does not work yet!
