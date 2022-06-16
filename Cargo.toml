@@ -24,3 +24,6 @@ cc = "1.0"
 [profile.release]
 # Tell `rustc` to optimize for small code size.
 opt-level = "s"
+
+[target.wasm32-wasi]
+rustflags = ["-C", "target-feature=+crt-static"]
