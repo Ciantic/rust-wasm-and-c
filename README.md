@@ -10,6 +10,10 @@ CC=/usr/bin/clang AR=/usr/bin/llvm-ar wasm-pack build --target web --out-dir=pkg
 ```
 
 
+Above wasm-pack approach may hide the errors from you and have hidden memory-corruption errors as a result, unless its using wasm32-wasi, I'd recommend against relying on that. [See this.](https://github.com/rustwasm/team/issues/291#issuecomment-1158082482)
+
+
+
 ## Wasi target
 
 Generates only WASM File
