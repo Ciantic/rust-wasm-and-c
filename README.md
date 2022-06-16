@@ -1,5 +1,13 @@
 # Hello world with WASM, C and Rust
 
+## Wasm-pack build with C code
+
+```bash
+apt install llvm-dev libclang-dev clang lld
+CC=/usr/bin/clang AR=/usr/bin/llvm-ar wasm-pack build --target web --out-dir=pkg
+```
+
+
 ## Emscripten target
 
 ```bash
